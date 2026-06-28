@@ -714,3 +714,4 @@ pydantic_core._pydantic_core.ValidationError: 1 validation error for TextNode
 text
   Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
     For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2026-06-28 14:36:45 | INFO | app.main | RAG Capstone Agent started in local mode
