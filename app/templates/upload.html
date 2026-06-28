@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="card">
-    <h2>Screen 3: Upload Documents to RAG and Chroma Vector Database</h2>
+<div class="upload-page">
+    <div class="container">
+        <section class="card">
+    <h2>Screen 3: Upload Documents for RAG Indexing</h2>
     <p>Supported formats: pdf, txt, md, csv, xlsx, xls, json, yaml, yml, docx.</p>
     <form action="/ui/upload" method="post" enctype="multipart/form-data">
         <label>Documents</label>
@@ -12,7 +14,7 @@
 </section>
 
 {% if result %}
-<section class="card">
+    <section class="card">
     <h2>Upload Result</h2>
     <p><strong>Chunks indexed:</strong> {{ result.chunks_indexed }}</p>
     <h3>Saved files</h3>
@@ -22,4 +24,6 @@
     {% if result.errors %}<h3>Errors</h3><ul>{% for e in result.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
 </section>
 {% endif %}
+    </div>
+</div>
 {% endblock %}

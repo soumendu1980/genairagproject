@@ -114,3 +114,24 @@ pre {
     margin: 12px 0;
     color: var(--muted);
 }
+
+/* Upload page: blue background and subtle translucent cards */
+.upload-page {
+    background-color: #0d6efd;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 28px 0;
+}
+.upload-page .container {
+    max-width: 900px;
+}
+.upload-page .card {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+    color: inherit;
+    box-shadow: none;
+}
+.upload-page label, .upload-page p, .upload-page h2, .upload-page h3, .upload-page ul, .upload-page li {
+    color: inherit;
+}
+

@@ -511,3 +511,206 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2026-06-28 09:43:09 | INFO | sentence_transformers.SentenceTransformer | 2 prompts are loaded, with the keys: ['query', 'text']
 2026-06-28 12:09:16 | INFO | app.main | RAG Capstone Agent started in local mode
 2026-06-28 12:12:26 | INFO | app.main | RAG Capstone Agent started in local mode
+2026-06-28 14:33:19 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:19 | INFO | openai._base_client | Retrying request to /chat/completions in 0.467497 seconds
+2026-06-28 14:33:19 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:19 | INFO | openai._base_client | Retrying request to /chat/completions in 0.759181 seconds
+2026-06-28 14:33:20 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:20 | INFO | openai._base_client | Retrying request to /chat/completions in 1.943347 seconds
+2026-06-28 14:33:22 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:22 | WARNING | llama_index.llms.openai.utils | Retrying llama_index.llms.openai.base.OpenAI._chat in 1 seconds as it raised RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}.
+2026-06-28 14:33:23 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:23 | INFO | openai._base_client | Retrying request to /chat/completions in 0.475151 seconds
+2026-06-28 14:33:24 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:24 | INFO | openai._base_client | Retrying request to /chat/completions in 0.983671 seconds
+2026-06-28 14:33:25 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:25 | INFO | openai._base_client | Retrying request to /chat/completions in 1.509170 seconds
+2026-06-28 14:33:27 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:27 | WARNING | llama_index.llms.openai.utils | Retrying llama_index.llms.openai.base.OpenAI._chat in 1.52 seconds as it raised RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}.
+2026-06-28 14:33:28 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:28 | INFO | openai._base_client | Retrying request to /chat/completions in 0.424422 seconds
+2026-06-28 14:33:29 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:29 | INFO | openai._base_client | Retrying request to /chat/completions in 0.764745 seconds
+2026-06-28 14:33:30 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:30 | INFO | openai._base_client | Retrying request to /chat/completions in 1.826236 seconds
+2026-06-28 14:33:32 | INFO | httpx | HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-06-28 14:33:32 | ERROR | app.services.agent | Agent failed; falling back to RAG pipeline: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Traceback (most recent call last):
+  File "C:\genaicapstoneproject\genairagproject\app\services\agent.py", line 106, in ask
+    response = self.agent.chat(agent_prompt)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\callbacks\utils.py", line 41, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\agent\runner\base.py", line 647, in chat
+    chat_response = self._chat(
+        message=message,
+    ...<2 lines>...
+        mode=ChatResponseMode.WAIT,
+    )
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\agent\runner\base.py", line 579, in _chat
+    cur_step_output = self._run_step(
+        task.task_id, mode=mode, tool_choice=tool_choice
+    )
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\agent\runner\base.py", line 412, in _run_step
+    cur_step_output = self.agent_worker.run_step(step, task, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\callbacks\utils.py", line 41, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\agent\react\step.py", line 818, in run_step
+    return self._run_step(step, task)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\agent\react\step.py", line 570, in _run_step
+    chat_response = self._llm.chat(input_chat)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\llms\callbacks.py", line 173, in wrapped_llm_chat
+    f_return_val = f(_self, messages, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\llms\openai\base.py", line 355, in chat
+    return chat_fn(messages, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\llms\openai\base.py", line 106, in wrapper
+    return retry(f)(self, *args, **kwargs)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\_base.py", line 402, in __get_result
+    raise self._exception
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\llms\openai\base.py", line 432, in _chat
+    response = client.chat.completions.create(
+        messages=message_dicts,
+        stream=False,
+        **self._get_model_kwargs(**kwargs),
+    )
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<46 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2026-06-28 14:33:32 | ERROR | app.main | Unhandled error for /ui/query: 1 validation error for TextNode
+text
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Traceback (most recent call last):
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\genaicapstoneproject\genairagproject\app\api\routes.py", line 113, in query_screen_submit
+    async def health_screen(request: Request):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\asyncio\threads.py", line 26, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\genaicapstoneproject\genairagproject\app\services\agent.py", line 120, in ask
+    fallback = self.rag.generate_grounded_answer(question, top_k=top_k, untrusted_prompt=untrusted_prompt)
+  File "C:\genaicapstoneproject\genairagproject\app\services\rag_pipeline.py", line 79, in generate_grounded_answer
+    answer='I do not know based on the uploaded documents. No relevant chunks were retrieved.',
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\genaicapstoneproject\genairagproject\app\services\rag_pipeline.py", line 61, in retrieve
+    self,
+    
+  File "C:\genaicapstoneproject\genairagproject\app\services\vector_store.py", line 54, in retrieve
+    nodes = retriever.retrieve(query)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\base\base_retriever.py", line 245, in retrieve
+    nodes = self._retrieve(query_bundle)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\instrumentation\dispatcher.py", line 321, in wrapper
+    result = func(*args, **kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\indices\vector_store\retrievers\retriever.py", line 103, in _retrieve
+    return self._get_nodes_with_embeddings(query_bundle)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\indices\vector_store\retrievers\retriever.py", line 180, in _get_nodes_with_embeddings
+    query_result = self._vector_store.query(query, **self._kwargs)
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\vector_stores\chroma\base.py", line 371, in query
+    return self._query(
+           ~~~~~~~~~~~^
+        query_embeddings=query.query_embedding,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\vector_stores\chroma\base.py", line 414, in _query
+    node = TextNode(
+        text=text,
+    ...<4 lines>...
+        relationships=relationships,
+    )
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\llama_index\core\schema.py", line 645, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "c:\edurekaproj\genaicapstoneproj\.venv\Lib\site-packages\pydantic\main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for TextNode
+text
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
