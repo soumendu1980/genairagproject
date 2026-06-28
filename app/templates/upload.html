@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Screen 3: Upload Documents to RAG and Chroma Vector Database</h2>
+    <p>Supported formats: pdf, txt, md, csv, xlsx, xls, json, yaml, yml, docx.</p>
+    <form action="/ui/upload" method="post" enctype="multipart/form-data">
+        <label>Documents</label>
+        <input type="file" name="files" multiple required>
+        <label class="checkbox"><input type="checkbox" name="ingest" value="true" checked> Ingest immediately into Chroma</label>
+        <button type="submit">Upload and Ingest</button>
+    </form>
+</section>
+
+{% if result %}
+<section class="card">
+    <h2>Upload Result</h2>
+    <p><strong>Chunks indexed:</strong> {{ result.chunks_indexed }}</p>
+    <h3>Saved files</h3>
+    <ul>{% for f in result.saved_files %}<li>{{ f }}</li>{% endfor %}</ul>
+    <h3>Ingested files</h3>
+    <ul>{% for f in result.ingested_files %}<li>{{ f }}</li>{% endfor %}</ul>
+    {% if result.errors %}<h3>Errors</h3><ul>{% for e in result.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Screen 2: API, RAG, and Upload Health</h2>
+    <table>
+        <tr><th>API</th><td>{{ health.api }}</td></tr>
+        <tr><th>Doc directory</th><td>{{ health.doc_dir }}</td></tr>
+        <tr><th>Chroma</th><td>{{ health.chroma }}</td></tr>
+        <tr><th>Collection</th><td>{{ health.collection }}</td></tr>
+        <tr><th>Documents in doc/</th><td>{{ health.document_count }}</td></tr>
+        <tr><th>Vector count</th><td>{{ health.vector_count }}</td></tr>
+        <tr><th>Agent</th><td>{{ health.agent }}</td></tr>
+        <tr><th>Embedding model</th><td>{{ health.embedding_model }}</td></tr>
+    </table>
+</section>
+{% endblock %}

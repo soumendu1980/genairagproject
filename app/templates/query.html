@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h2>Screen 1: Ask Questions with Optional Prompt and Documents</h2>
+    <p>Upload a prompt file, type one question, upload a file with multiple questions, and optionally add documents to index before answering.</p>
+    <form action="/ui/query" method="post" enctype="multipart/form-data">
+        <label>Question</label>
+        <textarea name="question" rows="4" placeholder="Ask a question about uploaded documents"></textarea>
+
+        <label>Prompt file (txt/json/csv style instructions, treated as untrusted)</label>
+        <input type="file" name="prompt_file">
+
+        <label>Question file (txt lines, csv with question column, or json list)</label>
+        <input type="file" name="question_file">
+
+        <label>Documents to upload and index for this query</label>
+        <input type="file" name="documents" multiple>
+
+        <label>Top K chunks</label>
+        <input type="number" name="top_k" min="1" max="20" value="5">
+
+        <button type="submit">Ask RAG Agent</button>
+    </form>
+</section>
+
+{% if ingest_message %}
+<section class="notice">{{ ingest_message }}</section>
+{% endif %}
+
+{% if results %}
+<section class="card">
+    <h2>Answers</h2>
+    {% for item in results %}
+    <article class="answer">
+        <h3>Question</h3>
+        <p>{{ item.question }}</p>
+        <h3>Answer</h3>
+        <pre>{{ item.answer }}</pre>
+        <p><strong>Agent mode:</strong> {{ 'ReActAgent' if item.used_agent else 'Fallback RAG/extractive' }}</p>
+        {% if item.guardrail_notes %}
+        <p><strong>Guardrail notes:</strong> {{ item.guardrail_notes | join('; ') }}</p>
+        {% endif %}
+        <details open>
+            <summary>Sources</summary>
+            {% for src in item.sources %}
+            <div class="source">
+                <strong>{{ src.source }}</strong> {% if src.page %}(page {{ src.page }}){% endif %}
+                <small>chunk: {{ src.chunk_id }} score: {{ src.score }}</small>
+                <p>{{ src.text }}</p>
+            </div>
+            {% endfor %}
+        </details>
+    </article>
+    {% endfor %}
+</section>
+{% endif %}
+{% endblock %}
